@@ -1,0 +1,52 @@
+using System;
+using exercicio_classes_01;
+using System.Globalization;
+
+namespace Course
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Retangulo x = new Retangulo();
+
+            Console.WriteLine("Digite a largura e altura do retângulo:");
+            x.Largura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            x.Altura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine("\nAREA = " + x.Area().ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("PERÍMETRO = " + x.Perimetro().ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("DIAGONAL = " + x.Diagonal().ToString("F2", CultureInfo.InvariantCulture));
+        }
+    }
+}
+
+// Código referente a Classe Retangulo
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace exercicio_classes_01
+{
+    internal class Retangulo
+    {
+        public double Largura;
+        public double Altura;
+        public double Area()
+        {
+            return Largura * Altura;
+        }
+
+        public double Perimetro()
+        {
+            return 2 * (Largura + Altura);
+        }
+
+        public double Diagonal()
+        {
+            return Math.Sqrt(Largura * Largura + Altura * Altura);
+        }
+    }
+}
